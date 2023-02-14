@@ -1,21 +1,39 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { Avatar, Box, Header, PageLayout, StyledOcticon, useTheme } from "@primer/react";
+import { MarkGithubIcon } from "@primer/octicons-react";
 
-function App() {
+export default function App() {
+  const { setColorMode, colorMode, colorScheme } = useTheme();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header>
+        <Header.Item>
+          <Header.Link href="#" sx={{ fontSize: 2 }}>
+            <StyledOcticon icon={MarkGithubIcon} size={32} sx={{ mr: 2 }} />
+            <span>GitHub</span>
+          </Header.Link>
+        </Header.Item>
+        <Header.Item full>Menu</Header.Item>
+        <Header.Item sx={{ mr: 0 }}>
+          <Avatar src="https://github.com/octocat.png" size={20} square alt="@octocat" />
+        </Header.Item>
+      </Header>
+
+      <PageLayout>
+        <PageLayout.Content>
+          <Box borderColor="border.default" borderWidth={1} borderStyle="solid" p={3} borderRadius={1}>
+            <button onClick={() => setColorMode(colorScheme === "dark" ? "light" : "dark")}>Toggle theme</button>
+            <br />
+            Color mode: {colorMode}
+            <br />
+            Color scheme: {colorScheme}
+          </Box>
+
+          {/* Force the scrollbar to test the theme */}
+          <div style={{ height: "2000px" }} />
+        </PageLayout.Content>
+      </PageLayout>
+    </>
   );
 }
-
-export default App;
