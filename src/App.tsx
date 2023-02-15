@@ -23,6 +23,7 @@ export default function App() {
       <PageLayout>
         <PageLayout.Content>
           <Box borderColor="border.default" borderWidth={1} borderStyle="solid" p={3} borderRadius={1}>
+            Hello React!
             <button onClick={() => setColorMode(colorScheme === "dark" ? "light" : "dark")}>Toggle theme</button>
             <br />
             Color mode: {colorMode}
