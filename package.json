@@ -2,6 +2,7 @@
   "name": "myapp-typescript",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@primer/octicons-react": "^17.11.1",
     "@primer/react": "^35.19.0",
